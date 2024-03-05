@@ -1,10 +1,15 @@
 using System;
+using System.Collections;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class RecordingScript : MonoBehaviour
 {
+    public AudioClip backgroundClip;
+
+    // For recording
     public TextMeshProUGUI RecordButtonText;
     private bool isRecording = false;
     internal string FILENAME;
@@ -13,6 +18,10 @@ public class RecordingScript : MonoBehaviour
     private String fileName;
     private FileStream fileStream;
     float[] tempDataSource;
+
+    // For playback
+    public AudioSource audioSource;
+    private AudioClip recordedClip;
 
     void Awake()
     {
@@ -25,6 +34,59 @@ public class RecordingScript : MonoBehaviour
         isRecording = false;
     }
 
+    // Play back the audio that was just recorded
+    public void PlayAudio()
+    {
+        if (recordedClip != null)
+        {
+            audioSource.clip = recordedClip;
+            audioSource.Play();
+        }
+        else
+        {
+            // Load and play the recorded audio clip
+            string filePath = "AudioFiles/" + fileName;
+            recordedClip = LoadAudioClip(filePath);
+            if (recordedClip != null)
+            {
+                audioSource.clip = recordedClip;
+                audioSource.Play();
+            }
+            else
+            {
+                Debug.LogError("Failed to load recorded audio clip.");
+            }
+        }
+    }
+
+    // Load the audio clip from file
+    private AudioClip LoadAudioClip(string filePath)
+    {
+        if (File.Exists(filePath))
+        {
+            // Read all bytes from the file
+            byte[] fileData = File.ReadAllBytes(filePath);
+            float[] floatData = new float[fileData.Length / 2];
+            for (int i = 0; i < floatData.Length; i++)
+            {
+                floatData[i] = BitConverter.ToInt16(fileData, i * 2) / 32768f; // Convert to range -1 to 1
+            }
+
+            // Create a new AudioClip
+            AudioClip audioClip = AudioClip.Create("RecordedClip", floatData.Length / 2, 2, outputRate, false);
+
+            // Set the audio clip data
+            audioClip.SetData(floatData, 0);
+
+            return audioClip;
+        }
+        else
+        {
+            Debug.LogError("File does not exist: " + filePath);
+            return null;
+        }
+    }
+
     // Button click function
     public void OnRecord()
     {
@@ -32,11 +94,13 @@ public class RecordingScript : MonoBehaviour
 
         if (isRecording)
         {
+            audioSource.PlayOneShot(backgroundClip);
             RecordButtonText.text = "Stop";
             record();
         }
         else
         {
+            audioSource.Stop();
             Debug.Log("Recording stopped");
             RecordButtonText.text = "Record";
             saveRecording();
