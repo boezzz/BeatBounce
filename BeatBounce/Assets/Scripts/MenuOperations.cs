@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuOperations : MonoBehaviour
 {
 
 
     // for ball launcher
-    //public Transform _turret;
-    //public Transform _barrel;
     public GameObject _firingPosition;
-
     public GameObject _cannonBall;
+    //public Slider mySlider;
+    public Slider mySlider;
 
 
     // this refer to the hand menu, add in world operations
@@ -43,9 +43,14 @@ public class MenuOperations : MonoBehaviour
 
     public void spawnBall()
     {
-        // Instantiate(_cannonBall, _firingPosition.transform.position, _firingPosition.transform.rotation);
+        
         GameObject ball = Instantiate(_cannonBall, _firingPosition.transform.position, _firingPosition.transform.rotation);
-        ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 700f, 0));
+        CannonBall cannonBallInstance = ball.GetComponent<CannonBall>();
+        if (cannonBallInstance != null)
+        {
+            cannonBallInstance.SetVelocity(mySlider.value);
+        }
+        // ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 700f, 0));
     }
 
 

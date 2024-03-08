@@ -21,7 +21,7 @@ public class CannonBall : MonoBehaviour
     public void SetVelocity(float velocity)
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddRelativeForce(new Vector3(0, 0, velocity));
+        rb.AddRelativeForce(new Vector3(0, velocity, 0));
 
         Destroy(gameObject, 5);
     }
