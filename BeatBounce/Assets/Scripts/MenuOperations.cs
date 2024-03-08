@@ -12,6 +12,7 @@ public class MenuOperations : MonoBehaviour
     public GameObject _cannonBall;
     //public Slider mySlider;
     public Slider mySlider;
+    public Slider massSlider;
 
 
     // this refer to the hand menu, add in world operations
@@ -48,6 +49,8 @@ public class MenuOperations : MonoBehaviour
         CannonBall cannonBallInstance = ball.GetComponent<CannonBall>();
         if (cannonBallInstance != null)
         {
+            cannonBallInstance.SetMass(massSlider.value);
+            // changes velocity and destroys ball
             cannonBallInstance.SetVelocity(mySlider.value);
         }
         // ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 700f, 0));

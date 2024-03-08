@@ -26,5 +26,12 @@ public class CannonBall : MonoBehaviour
         Destroy(gameObject, 5);
     }
 
+    public void SetMass(float mass)
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.mass = mass;
+
+    }
+
 
 }
