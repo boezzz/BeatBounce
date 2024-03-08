@@ -43,7 +43,9 @@ public class MenuOperations : MonoBehaviour
 
     public void spawnBall()
     {
-        Instantiate(_cannonBall, _firingPosition.transform.position, _firingPosition.transform.rotation);
+        // Instantiate(_cannonBall, _firingPosition.transform.position, _firingPosition.transform.rotation);
+        GameObject ball = Instantiate(_cannonBall, _firingPosition.transform.position, _firingPosition.transform.rotation);
+        ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 700f, 0));
     }
 
 
