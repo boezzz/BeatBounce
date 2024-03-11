@@ -43,6 +43,7 @@ public class CannonBall : MonoBehaviour
         PlaySound();
     }
 
+    // TODO: replace with Peyton's spatial audio script
     public void PlaySound()
     {
         if (audioSource != null)
