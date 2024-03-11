@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 // using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CannonBall : MonoBehaviour
 {
+    // Clip to play on collision
+    public AudioClip soundToPlay;
+    private AudioSource audioSource;
     // public float velocity = 700f;
     private Rigidbody rb;
     // public Slider mySlider;
@@ -15,7 +16,11 @@ public class CannonBall : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         // rb.AddRelativeForce(new Vector3(0, 0, velocity));
         // Destroy(gameObject, 5);
-
+        GameObject gameObject = GameObject.Find("Audio Source");
+        if (gameObject != null)
+        {
+            audioSource = gameObject.GetComponent<AudioSource>();
+        }
     }
 
     public void SetVelocity(float velocity)
@@ -33,5 +38,20 @@ public class CannonBall : MonoBehaviour
 
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        PlaySound();
+    }
 
+    public void PlaySound()
+    {
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(soundToPlay);
+        }
+        else
+        {
+            Debug.LogError("AudioSource component is null!");
+        }
+    }
 }
