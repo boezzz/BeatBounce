@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 55daccc09a3b69647bbab145b54a3ab3
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Grab XR.unity
     guid: c6394d2637c54458a9e68ac463a5c499
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/XR_BallLaunch.unity
     guid: e8dbce44707894191a970dc7ce9e5de8
   m_configObjects:
