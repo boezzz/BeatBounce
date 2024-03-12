@@ -252,9 +252,10 @@ GameObject:
   - component: {fileID: 5269260460068433395}
   - component: {fileID: 6013858347519943922}
   - component: {fileID: 4441040187746759921}
+  - component: {fileID: 7554740128544464807}
   m_Layer: 0
   m_Name: TestCube
-  m_TagString: panel
+  m_TagString: SineWave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,7 +305,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ec5cf338da2fe49b999f09798eb07055, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -599,6 +600,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c7220f5d8c34369809dfc7657d1177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  White: {fileID: 2100000, guid: ec5cf338da2fe49b999f09798eb07055, type: 2}
+  Red: {fileID: 2100000, guid: 601e54e147bba4c60944552cce2b7cac, type: 2}
+  Blue: {fileID: 2100000, guid: 7b26add94f09dc44fb811013f007a3aa, type: 2}
+  Yellow: {fileID: 2100000, guid: 7f99d7a2fbff4452d9f89c1ddadaf09b, type: 2}
+--- !u!114 &7554740128544464807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7796630890124486320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ffdf74530534350a9dfe887bd5e847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sampleRate: 44100
 --- !u!1001 &206358006417735433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1117,7 +1135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7081840893004531709, guid: e55867da47a143c4c9bc7882ff19e51d, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.28571427
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 7081840893004531709, guid: e55867da47a143c4c9bc7882ff19e51d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1125,7 +1143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7081840893004531709, guid: e55867da47a143c4c9bc7882ff19e51d, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.28571427
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 7081840893024566374, guid: e55867da47a143c4c9bc7882ff19e51d, type: 3}
       propertyPath: m_IsActive
@@ -1133,7 +1151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7081840893373687796, guid: e55867da47a143c4c9bc7882ff19e51d, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.28571427
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 7081840893373687796, guid: e55867da47a143c4c9bc7882ff19e51d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1563,31 +1581,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
       propertyPath: m_Options.m_Options.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
       propertyPath: m_Options.m_Options.Array.data[0].m_Text
-      value: Drum
+      value: Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
       propertyPath: m_Options.m_Options.Array.data[1].m_Text
-      value: Tamborine
+      value: Synth
       objectReference: {fileID: 0}
     - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
       propertyPath: m_Options.m_Options.Array.data[2].m_Text
-      value: Blaster Totem
+      value: Arcade
       objectReference: {fileID: 0}
     - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
       propertyPath: m_Options.m_Options.Array.data[3].m_Text
-      value: Kinetic Totem
+      value: Alarm
       objectReference: {fileID: 0}
     - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
       propertyPath: m_Options.m_Options.Array.data[4].m_Text
       value: Kinetic Totem
       objectReference: {fileID: 0}
+    - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4441040187746759921}
+    - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnTypeChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PanelMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2261121209384240351}
+    - target: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TMPro.TMP_Dropdown, Unity.TextMeshPro
+      objectReference: {fileID: 0}
     - target: {fileID: 7897306852879701310, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
       propertyPath: m_text
-      value: Drum
+      value: Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 7897306854194537357, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1598,6 +1648,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
+--- !u!114 &2261121209384240351 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7800413991915503276, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}
+  m_PrefabInstance: {fileID: 8296121926836763251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7862211589908528024 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2179057468902719979, guid: 69eb4eecbd2100a408ab74fc543b405c, type: 3}

@@ -18,7 +18,22 @@ public class MenuOperations : MonoBehaviour
     // this refer to the hand menu, add in world operations
     public void OnClearButtonClicked() {
         // clear all panels in space
-        foreach (var each_panel in GameObject.FindGameObjectsWithTag("panel")){
+        foreach (var each_panel in GameObject.FindGameObjectsWithTag("SineWave")){
+            Destroy(each_panel);
+        }
+
+        foreach (var each_panel in GameObject.FindGameObjectsWithTag("SawtoothWave"))
+        {
+            Destroy(each_panel);
+        }
+
+        foreach (var each_panel in GameObject.FindGameObjectsWithTag("TriangleWave"))
+        {
+            Destroy(each_panel);
+        }
+
+        foreach (var each_panel in GameObject.FindGameObjectsWithTag("SquareWave"))
+        {
             Destroy(each_panel);
         }
     }

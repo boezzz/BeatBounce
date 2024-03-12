@@ -94,6 +94,7 @@ public class RecordingScript : MonoBehaviour
 
         if (isRecording)
         {
+            audioSource.Stop();
             audioSource.PlayOneShot(backgroundClip);
             RecordButtonText.text = "Stop";
             record();

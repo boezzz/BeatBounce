@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PanelMenu : MonoBehaviour
 {
+
+    public Material White;
+    public Material Red;
+    public Material Blue;
+    public Material Yellow;
+
     // status menu for each panel
     public void ShowStatus()
     {
@@ -23,9 +30,43 @@ public class PanelMenu : MonoBehaviour
         // delete the specific panel through its status menu
         Destroy(gameObject);
     }
-    
-    public void OnTypeChange() {
-        // not implemented yet, need to change the model of the panel when the type changed
+
+    public void OnTypeChange(TMP_Dropdown myDropdown)
+    {
+        int selectedIndex = myDropdown.value;
+
+        // Get the string value of the selected option
+        string instrument = myDropdown.options[selectedIndex].text;
+        string waveType;
+
+        Renderer renderer = gameObject.GetComponent<Renderer>();
+
+        if (instrument == "Keyboard")
+        {
+            waveType = "SineWave";
+            renderer.material = White;
+        } else if (instrument == "Synth")
+        {
+            waveType = "TriangleWave";
+            renderer.material = Blue;
+        }
+        else if (instrument == "Arcade")
+        {
+            waveType = "SquareWave";
+            renderer.material = Yellow;
+        }
+        else if (instrument == "Alarm")
+        {
+            waveType = "SawtoothWave";
+            renderer.material = Red;
+        }
+        else
+        {
+            return;
+        }
+
+        gameObject.tag = waveType;
+
     }
 
     public void OnSizeChange(float scaleValue) {
