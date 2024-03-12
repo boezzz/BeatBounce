@@ -1639,10 +1639,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07720e6fea45846e48946aa99c564dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firingPosition: {fileID: 1976710394}
-  _cannonBall: {fileID: 3914465342812135363, guid: 4f12d640cca674e459dc65207e71a0ae, type: 3}
-  mySlider: {fileID: 2121454529}
-  massSlider: {fileID: 1620173785}
+  _firingPosition: {fileID: 0}
+  _cannonBall: {fileID: 0}
+  mySlider: {fileID: 0}
+  massSlider: {fileID: 0}
 --- !u!4 &919159163
 Transform:
   m_ObjectHideFlags: 0
@@ -3695,17 +3695,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1620173785 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7081840892515873890, guid: e55867da47a143c4c9bc7882ff19e51d, type: 3}
-  m_PrefabInstance: {fileID: 2132385924}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1804458001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4192,11 +4181,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &1976710394 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8586396797414206211, guid: f2d586c9881f24b06a9b9eb99ad27ef1, type: 3}
-  m_PrefabInstance: {fileID: 946163690}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1991662658
 GameObject:
   m_ObjectHideFlags: 0
@@ -4550,17 +4534,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2179057468902719979, guid: e55867da47a143c4c9bc7882ff19e51d, type: 3}
   m_PrefabInstance: {fileID: 2121454527}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2121454529 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7081840892515873890, guid: e55867da47a143c4c9bc7882ff19e51d, type: 3}
-  m_PrefabInstance: {fileID: 2121454527}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2132385924
 PrefabInstance:
   m_ObjectHideFlags: 0
