@@ -2600,6 +2600,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Custom",
+            "id": "23fe6883-af21-4801-83d8-c3f30cefa006",
+            "actions": [
+                {
+                    "name": "CreateObject",
+                    "type": "Button",
+                    "id": "fae0afc3-bb10-4a6a-9cf9-d198d1c686be",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DestroyObject",
+                    "type": "Button",
+                    "id": "d4b28af0-ec89-4449-ba71-eab506f043e4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "89720064-5955-496a-bbfb-267ba0e2ff13",
+                    "path": "<OculusTouchController>/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CreateObject",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4b4cc044-8425-4600-9e29-8e94543bc093",
+                    "path": "<OculusTouchController>/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DestroyObject",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
