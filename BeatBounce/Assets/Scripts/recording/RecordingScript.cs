@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.IO;
+using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class RecordingScript : MonoBehaviour
 {
-    public AudioClip backgroundClip;
+    public AudioClip[] backgroundClips;
 
     // For recording
     public TextMeshProUGUI RecordButtonText;
@@ -21,7 +22,9 @@ public class RecordingScript : MonoBehaviour
 
     // For playback
     public AudioSource audioSource;
+    public TextMeshProUGUI PlaybackButtonText;
     private AudioClip recordedClip;
+    private bool isPlayingBack = false;
 
     void Awake()
     {
@@ -32,21 +35,26 @@ public class RecordingScript : MonoBehaviour
     void Start()
     {
         isRecording = false;
+        isPlayingBack = false;
+    }
+
+    void Update()
+    {
+        if (!audioSource.isPlaying)
+        {
+            PlaybackButtonText.text = "Playback";
+        }
     }
 
     // Play back the audio that was just recorded
     public void PlayAudio()
     {
-        if (recordedClip != null)
+        isPlayingBack = !isPlayingBack;
+
+        if (isPlayingBack)
         {
-            audioSource.clip = recordedClip;
-            audioSource.Play();
-        }
-        else
-        {
-            // Load and play the recorded audio clip
-            string filePath = fileName;
-            recordedClip = LoadAudioClip(filePath);
+            PlaybackButtonText.text = "Stop";
+
             if (recordedClip != null)
             {
                 audioSource.clip = recordedClip;
@@ -54,8 +62,24 @@ public class RecordingScript : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Failed to load recorded audio clip.");
+                // Load and play the recorded audio clip
+                string filePath = fileName;
+                recordedClip = LoadAudioClip(filePath);
+                if (recordedClip != null)
+                {
+                    audioSource.clip = recordedClip;
+                    audioSource.Play();
+                }
+                else
+                {
+                    Debug.LogError("Failed to load recorded audio clip.");
+                }
             }
+        }
+        else
+        {
+            PlaybackButtonText.text = "Playback";
+            audioSource.Stop();
         }
     }
 
@@ -95,7 +119,7 @@ public class RecordingScript : MonoBehaviour
         if (isRecording)
         {
             audioSource.Stop();
-            audioSource.PlayOneShot(backgroundClip);
+            playRandomBackgroundClip();
             RecordButtonText.text = "Stop";
             record();
         }
@@ -106,6 +130,13 @@ public class RecordingScript : MonoBehaviour
             RecordButtonText.text = "Record";
             saveRecording();
         }
+    }
+
+    private void playRandomBackgroundClip()
+    {
+        System.Random random = new System.Random();
+        int randIndex = random.Next(0, backgroundClips.Length);
+        audioSource.PlayOneShot(backgroundClips[randIndex]);
     }
 
     // Record in-game audio

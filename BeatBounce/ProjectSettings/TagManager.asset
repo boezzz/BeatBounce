@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - panel
+  - MusicalBall
+  - SineWave
+  - SquareWave
+  - TriangleWave
+  - SawtoothWave
   layers:
   - Default
   - TransparentFX

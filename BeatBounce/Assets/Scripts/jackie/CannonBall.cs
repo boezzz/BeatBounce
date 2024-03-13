@@ -38,7 +38,7 @@ public class CannonBall : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision collision)
+    /*void OnCollisionEnter(Collision collision)
     {
         PlaySound();
     }
@@ -54,5 +54,5 @@ public class CannonBall : MonoBehaviour
         {
             Debug.LogError("AudioSource component is null!");
         }
-    }
+    }*/
 }

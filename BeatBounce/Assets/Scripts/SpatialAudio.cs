@@ -61,8 +61,7 @@ public class SpatialAudio : MonoBehaviour
 
             float duration = 0.5f; // will be constant for now
 
-            float volume = collision.relativeVelocity.magnitude;
-            Debug.Log("Volume: " + volume);
+            float volume = collision.relativeVelocity.magnitude * 0.2f; // Multiplied by factor of 0.5 since it's pretty loud
             AudioClip clip = GenerateSineWave(frequency, duration, volume, gameObject.tag);
             if (clip != null) AudioSource.PlayClipAtPoint(clip, collisionPt.point);
         }
